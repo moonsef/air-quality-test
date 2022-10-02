@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { airQuality } = require("../controllers");
+const { airQualityController } = require("../controllers");
 
-router.get("/", airQuality.getAirQuality);
+router.get("/", airQualityController.getAirQuality);
 
 module.exports = router;

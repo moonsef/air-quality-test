@@ -1,5 +1,5 @@
-const airQuality = require("./air_quality");
+const airQualityRouter = require("./air_quality");
 
 module.exports = {
-  airQuality,
+  airQualityRouter,
 };
