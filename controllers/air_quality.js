@@ -1,4 +1,5 @@
 const { axios } = require("../config");
+const AirQuality = require("../models/air_quality");
 
 const getAirQuality = async (req, res) => {
   const { longitude, latitude } = req.query;
@@ -32,6 +33,24 @@ const getAirQuality = async (req, res) => {
   }
 };
 
+const getMostPollutedDateTime = async (req, res) => {
+  try {
+    const data = await AirQuality.find()
+      .sort({ "payload.aqius": "desc" })
+      .limit(1)
+      .exec();
+
+    return res.json({
+      Result: {
+        CreatedAt: data[0].created_at,
+      },
+    });
+  } catch (err) {
+    return res.status(500).json(err.message);
+  }
+};
+
 module.exports = {
   getAirQuality,
+  getMostPollutedDateTime,
 };
