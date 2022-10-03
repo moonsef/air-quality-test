@@ -43,7 +43,7 @@ given zone
 curl -i http://localhost/api/air-quality?longitude=2.20&latitude=40.20
 ```
 
-##### Query params:
+#### Query params:
 
 ```
 {
@@ -52,7 +52,7 @@ curl -i http://localhost/api/air-quality?longitude=2.20&latitude=40.20
 }
 ```
 
-##### Response:
+#### Response:
 
 ```
 {
@@ -81,7 +81,7 @@ zone is the most polluted **(based on your CRON JOB results)**.
 curl -i http://localhost/api/air-quality/most-polluted
 ```
 
-##### Response:
+#### Response:
 
 ```
 {
