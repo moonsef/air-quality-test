@@ -16,9 +16,7 @@ mongoose.connection
     airQualityCron.start();
 
     app.listen(process.env.APP_PORT, () => {
-      console.log(
-        `The server is up and running on port ${process.env.APP_PORT}`
-      );
+      console.log(`The server is up and running`);
     });
   })
-  .on("error", () => console.log("Cannot connect to DB: ", err.message));
+  .on("error", (err) => console.log("Cannot connect to DB: ", err.message));
