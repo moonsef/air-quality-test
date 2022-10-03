@@ -1,5 +1,6 @@
 const cron = require("node-cron");
 const { axios } = require("../config");
+const AirQuality = require("../models/air_quality");
 
 const task = cron.schedule("* * * * *", async () => {
   try {
@@ -15,8 +16,10 @@ const task = cron.schedule("* * * * *", async () => {
       },
     });
 
-    // TODO: store pollution in a database
-    console.log(current.pollution);
+    await AirQuality.create({
+      payload: current.pollution,
+      created_at: new Date(),
+    });
   } catch (err) {
     console.log(err);
   }
