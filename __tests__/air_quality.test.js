@@ -44,6 +44,7 @@ describe("Get air quality API", () => {
 
     expect(res.statusCode).toBe(200);
     expect(res.body.Result).toBeDefined();
+    expect(res.body.Result.Pollution).toBeDefined();
     expect(res.body.Result.Pollution.ts).toBe("2022-10-03T21:00:00.000Z");
     expect(res.body.Result.Pollution.aqius).toBe(76);
     expect(res.body.Result.Pollution.mainus).toBe("p2");
