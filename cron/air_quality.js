@@ -2,7 +2,7 @@ const cron = require("node-cron");
 const { axios } = require("../config");
 const AirQuality = require("../models/air_quality");
 
-const task = cron.schedule("* * * * *", async () => {
+const airQualityCronImpl = async () => {
   try {
     const {
       data: {
@@ -23,6 +23,11 @@ const task = cron.schedule("* * * * *", async () => {
   } catch (err) {
     console.log(err);
   }
-});
+};
 
-module.exports = task;
+const airQualityCron = cron.schedule("* * * * *", airQualityCronImpl);
+
+module.exports = {
+  airQualityCron,
+  airQualityCronImpl,
+};
