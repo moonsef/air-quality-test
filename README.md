@@ -26,6 +26,15 @@ docker-compose up -d --build
 
 now the server is up the runnning on [localhost](http://localhost)
 
+### 3) Run tests
+
+```
+npm test
+```
+
+**Note**  
+Note that the command `docker-compose up -d --build` <strong>must</strong> successfully run before exciting tests (because some tests work with the database)
+
 ## REST API
 
 The REST API to the Mini-project “AIR QUALITY” is described below.
